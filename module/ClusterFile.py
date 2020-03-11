@@ -1,4 +1,3 @@
-from itertools import izip
 from .BeadArrayUtility import read_int, read_string, read_byte, read_float
 
 class ClusterFile(object):
@@ -143,7 +142,7 @@ class ClusterFile(object):
             assert cluster_record.ab_cluster_stats.N == count_record[1]
             assert cluster_record.bb_cluster_stats.N == count_record[2]
 
-        for (locus_name, address, cluster_record, cluster_score) in izip(loci_names, addresses, cluster_records, cluster_scores):
+        for (locus_name, address, cluster_record, cluster_score) in zip(loci_names, addresses, cluster_records, cluster_scores):
             cluster_record.address = address
             cluster_record.cluster_score = cluster_score
             result.add_record(locus_name, cluster_record)
