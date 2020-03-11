@@ -76,7 +76,7 @@ class ClusterFile(object):
             list(value): A list of type value returned by read_record function
         """
         result = []
-        for idx in xrange(num_entries):
+        for idx in range(num_entries):
             result.append(read_record(handle))
         return result
 
@@ -134,7 +134,7 @@ class ClusterFile(object):
 
         # cluster counts
         cluster_counts = []
-        for idx in xrange(num_records):
+        for idx in range(num_records):
             # 3 corresponds to number genotypes (AA, AB, BB)
             cluster_counts.append(ClusterFile.read_array(handle, 3, read_int))
 
@@ -220,7 +220,7 @@ class ClusterRecord(object):
                 "Unsupported cluster record version " + str(version))
 
         # read through unused fields
-        for idx in xrange(14):
+        for idx in range(14):
             _ = read_float(handle)
 
         aa_cluster_stats = ClusterStats(

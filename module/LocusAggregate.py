@@ -1,5 +1,6 @@
 from itertools import imap
 
+
 class Loader(object):
     """
     A function object which handles loading a contiguous slice of loci
@@ -102,6 +103,7 @@ class GenerateLocusAggregate(object):
             locus_aggregate.transforms.append(
                 sample_buffer.transforms[relative_locus_idx])
         return locus_aggregate
+
 
 class LocusAggregate(object):
     """
