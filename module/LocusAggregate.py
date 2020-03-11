@@ -1,6 +1,3 @@
-from itertools import imap
-
-
 class Loader(object):
     """
     A function object which handles loading a contiguous slice of loci
@@ -199,8 +196,8 @@ class LocusAggregate(object):
                 samples, loci_group[0], loci_group[-1] - loci_group[0] + 1, normalization_lookups)
 
             # generate corresponding locus aggregates
-            aggregates = imap(GenerateLocusAggregate(
+            aggregates = map(GenerateLocusAggregate(
                 buffer, loci_group[0]), loci_group)
 
-            for result in imap(callback, aggregates):
+            for result in map(callback, aggregates):
                 yield result
