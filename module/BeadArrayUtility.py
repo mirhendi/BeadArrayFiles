@@ -113,4 +113,4 @@ def read_string(handle):
     if len(result) < total_length:
         raise Exception("Failed to read complete string")
     else:
-        return result
+        return result.decode('utf-8')
