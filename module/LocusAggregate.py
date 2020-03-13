@@ -145,7 +145,7 @@ class LocusAggregate(object):
         Returns:
             list(LocusAggregate): A locus aggregate object for each sample
         """
-        return map(Loader(locus_offset, loci_buffer_size, normalization_lookups), samples)
+        return list(map(Loader(locus_offset, loci_buffer_size, normalization_lookups), samples))
 
     @staticmethod
     def group_loci(loci, loci_batch_size):

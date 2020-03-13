@@ -115,7 +115,8 @@ class GenotypeCalls(object):
         """
         self.filename = filename
         with open(self.filename, "rb") as gtc_handle:
-            identifier = gtc_handle.read(3)
+            identifier = gtc_handle.read(3).decode('utf-8')
+            print(identifier)
             if identifier != "gtc":
                 raise Exception("GTC format error: bad format identifier")
             self.version = read_byte(gtc_handle)
