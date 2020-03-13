@@ -1,12 +1,8 @@
 # IlluminaBeadArrayFiles
-Library to parse file formats related to Illumina bead arrays. GTC files are produced by the AutoConvert and AutoCall softwares and contain genotyping (and other) information encoded in a binary format. The IlluminaBeadArrayFiles library provides a parser to extract information from these binary files.
+Library to parse file formats related to Illumina bead arrays. GTC files contain genotyping (and other) information encoded in a binary format. The IlluminaBeadArrayFiles library provides a parser to extract information from these binary files.
 
 ## Generating GTC files
-If you have intensity data files (IDATs) for which GTC files are not currentty available, it is possible to manually generate these files with either the Beeline or AutoConvert software (https://support.illumina.com/array/array_software/beeline/downloads.html). Beeline provides a graphical user interface for the creation of GTC files, while AutoConvert allows GTC files to be generated from the command-line,  as shown below
-
-```PowerShell
-& "C:\Program Files\Illumina\AutoConvert 2.0\AutoConvert.exe" path_to_idat_folder path_to_output_folder manifest_file egt_file
-```
+If you have intensity data files (IDATs) for which GTC files are not currentty available, it is possible to generate these files with Illumina Array Analysis Platform (https://support.illumina.com/array/array_software/illumina-array-analysis-platform.html)
 
 ## Build instructions
 The IlluminaBeadArrayFiles repository supports building a package with the python distutils module (https://docs.python.org/2/distutils/setupscript.html). To build a source distribution, run the included setup.py script supplying the "sdist" command
@@ -71,37 +67,11 @@ Aggregate information across many samples for a given loci
 Read information from a binary EGT file
 
 ## Compatibility
-This library is compatible with Python 2.7 and was tested with Python 2.7.11
+This library is compatible with Python 3.7 and was tested with Python 3.7.6
 
 ## License
 
->Copyright (c) 2017, Illumina
-> All rights reserved.
->
-> Redistribution and use in source and binary forms, with or without
-> modification, are permitted provided that the following conditions are met:
->
->1. Redistributions of source code must retain the above copyright notice, this
->list of conditions and the following disclaimer.
->2. Redistributions in binary form must reproduce the above copyright notice,
->this list of conditions and the following disclaimer in the documentation
->and/or other materials provided with the distribution.
->
->THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
->ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
->WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
->DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
->ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
->(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
->LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
->ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
->(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
->SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
->
->The views and conclusions contained in the software and documentation are those
->of the authors and should not be interpreted as representing official policies,
->either expressed or implied, of the FreeBSD Project.
-
+This is the upgraded version of https://github.com/Illumina/BeadArrayFiles to support Python 3
 
 
 
