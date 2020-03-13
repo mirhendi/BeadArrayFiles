@@ -237,10 +237,10 @@ def driver(gtc_dir, manifest_filename, cluster_filename, output_filename, projec
         if gtc_file.endswith(".gtc"):
             gtc_files.append(os.path.join(gtc_dir, gtc_file))
 
-    samples = map(GenotypeCalls, gtc_files)
+    samples = list(map(GenotypeCalls, gtc_files))
 
     logger.info("Generating report")
-    loci = range(len(bpm.normalization_lookups))
+    loci = list(range(len(bpm.normalization_lookups)))
     with open(output_filename, "w") as output_handle:
         output_handle.write("Locus Summary on " +
                             os.path.abspath(output_filename) + "\n")
@@ -255,7 +255,7 @@ def driver(gtc_dir, manifest_filename, cluster_filename, output_filename, projec
         output_handle.write(delim.join(header) + "\n")
 
         output_handle.write(delim.join("Row,Locus_Name,Illumicode_Name,#No_Calls,#Calls,Call_Freq,A/A_Freq,A/B_Freq,B/B_Freq,Minor_Freq,Gentrain_Score,50%_GC_Score,10%_GC_Score,Het_Excess_Freq,ChiTest_P100,Cluster_Sep,AA_T_Mean,AA_T_Std,AB_T_Mean,AB_T_Std,BB_T_Mean,BB_T_Std,AA_R_Mean,AA_R_Std,AB_R_Mean,AB_R_Std,BB_R_Mean,BB_R_Std,Plus/Minus Strand".split(",")) + "\n")
-        for (locus, locus_summary) in izip(loci, LocusAggregate.aggregate_samples(samples, loci, summarize_locus, bpm.normalization_lookups)):
+        for (locus, locus_summary) in zip(loci, LocusAggregate.aggregate_samples(samples, loci, summarize_locus, bpm.normalization_lookups)):
             locus_name = bpm.names[locus]
             cluster_record = egt.get_record(locus_name)
             row_data = []
@@ -293,7 +293,7 @@ def driver(gtc_dir, manifest_filename, cluster_filename, output_filename, projec
             else:
                 row_data.append("U")
 
-            output_handle.write(delim.join(map(str, row_data)) + "\n")
+            output_handle.write(delim.join(list(map(str, row_data))) + "\n")
         logger.info("Report generation complete")
 
 

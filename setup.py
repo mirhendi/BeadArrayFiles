@@ -1,4 +1,4 @@
-from distutils.core import setup
+from setuptools import setup
 setup(
     name='IlluminaBeadArrayFiles',
     description='Library to read data format related to Illumina genotyping bead arrays',
@@ -6,5 +6,5 @@ setup(
     author_email='ryankelley@illumina.com',
     packages=['IlluminaBeadArrayFiles'],
     package_dir={'IlluminaBeadArrayFiles' : 'module'},
-    version='1.2.0', requires=['numpy']
+    version='1.2.0', requires=['numpy', 'scipy']
 )

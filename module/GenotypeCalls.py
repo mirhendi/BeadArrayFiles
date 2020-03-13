@@ -116,7 +116,6 @@ class GenotypeCalls(object):
         self.filename = filename
         with open(self.filename, "rb") as gtc_handle:
             identifier = gtc_handle.read(3).decode('utf-8')
-            print(identifier)
             if identifier != "gtc":
                 raise Exception("GTC format error: bad format identifier")
             self.version = read_byte(gtc_handle)
@@ -651,7 +650,7 @@ class NormalizationTransform:
         return NormalizationTransform(handle.read(52))
 
     @staticmethod
-    def rect_to_polar(x_y):
+    def rect_to_polar(x, y):
         """
         Converts normalized x,y intensities to (pseudo) polar co-ordinates (R, theta)
 
@@ -661,7 +660,6 @@ class NormalizationTransform:
         Returns:
             (float, float): (R,theta) polar values as tuple of floats
         """
-        (x, y) = x_y
         if x == 0 and y == 0:
             return (nan, nan)
         return (x + y, arctan2(y, x) * 2.0 / pi)
